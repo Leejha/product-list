@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PATH } from "../libs";
 import { Link } from "react-router-dom";
 import { useProduct } from "../hooks";
-import { ImagesList } from ".";
+import { ImagesList } from "../components";
 
 function ProductContainer() {
   const { product, limit, keyword } = useProduct();

@@ -1,5 +1,5 @@
 import { useProducts } from "../hooks";
-import { Header, MoreButton, ProductList } from ".";
+import { Header, MoreButton, ProductList } from "../components";
 
 function ProductListContainer() {
   const {

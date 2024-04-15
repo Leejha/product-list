@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ProductListContainer } from "../components";
+import { ProductListContainer } from "../containers";
 
 function ProductListPage() {
   return (
