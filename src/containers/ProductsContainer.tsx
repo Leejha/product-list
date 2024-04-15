@@ -1,15 +1,10 @@
-import { useProducts } from "../hooks";
+import { useProducts, useSearch } from "../hooks";
 import { Header, MoreButton, ProductList } from "../components";
 
 function ProductsContainer() {
-  const {
-    keyword,
-    limit,
-    productsResponse,
-    inputRef,
-    onClickSearch,
-    onClickMoreProductFetch,
-  } = useProducts();
+  const { keyword, limit, productsResponse, onClickMoreProductFetch } =
+    useProducts();
+  const { inputRef, onClickSearch } = useSearch();
 
   if (!productsResponse) {
     return <>Loading...</>;
