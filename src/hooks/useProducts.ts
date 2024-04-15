@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ProductsResponse } from "../types";
 import { getProductsApi } from "../libs";
+import useSearchQueryParams from "./useSearchQueryParams";
 
 export default function useProducts() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const keyword = (searchParams.get("q") as string) ?? "";
-  const limit = (searchParams.get("limit") as string) ?? "10";
-  const beforeId = (searchParams.get("beforeId") as string) ?? "";
+  const [_, setSearchParams] = useSearchParams();
+  const { keyword, limit, beforeId } = useSearchQueryParams();
 
   const onClickMoreProductFetch = () => {
     setSearchParams({ q: keyword, limit: String(Number(limit) + 10) });
