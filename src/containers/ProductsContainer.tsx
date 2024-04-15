@@ -1,7 +1,7 @@
 import { useProducts } from "../hooks";
 import { Header, MoreButton, ProductList } from "../components";
 
-function ProductListContainer() {
+function ProductsContainer() {
   const {
     keyword,
     limit,
@@ -33,4 +33,4 @@ function ProductListContainer() {
   );
 }
 
-export default ProductListContainer;
+export default ProductsContainer;

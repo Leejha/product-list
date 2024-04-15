@@ -4,7 +4,7 @@ import App from "../App";
 
 const Error = lazy(() => import("../pages/Error"));
 const Loading = lazy(() => import("../pages/Loading"));
-const ProductListPage = lazy(() => import("../pages/ProductListPage"));
+const ProductsPage = lazy(() => import("../pages/ProductsPage"));
 const ProductPage = lazy(() => import("../pages/ProductPage"));
 
 export const PATH = {
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <Suspense fallback={<Loading />}>
-            <ProductListPage />
+            <ProductsPage />
           </Suspense>
         ),
       },
