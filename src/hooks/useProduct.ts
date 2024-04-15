@@ -3,7 +3,7 @@ import { Product } from "../types";
 import { useParams, useSearchParams } from "react-router-dom";
 import { getProductApi } from "../libs";
 
-export default function useProducts() {
+export default function useProduct() {
   const [product, setProduct] = useState<Product>();
   const { id } = useParams() as { id: string };
   const [searchParams] = useSearchParams();
