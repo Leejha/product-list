@@ -31,7 +31,7 @@ export default function useProducts() {
   return {
     keyword,
     limit,
-    productsResponse,
+    data: productsResponse,
     onClickMoreProductFetch,
   };
 }
