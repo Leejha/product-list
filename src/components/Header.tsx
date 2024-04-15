@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { PATH } from "../libs";
 
 interface Props {
-  inputRef: React.RefObject<HTMLInputElement>;
-  onClickSearch: () => void;
   keyword: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: () => void;
 }
 
-function Header({ inputRef, onClickSearch, keyword }: Props) {
+function Header({ keyword, onChange, onSubmit }: Props) {
   return (
     <Container>
       <LinkToMainPage to={PATH.PRODUCTLISTPAGE}>
@@ -17,11 +17,11 @@ function Header({ inputRef, onClickSearch, keyword }: Props) {
       <SearchContainer
         onSubmit={(e) => {
           e.preventDefault();
-          onClickSearch();
+          onSubmit();
         }}
       >
-        <SearchInput ref={inputRef} defaultValue={keyword} />
-        <SearchButton onClick={onClickSearch}>검색</SearchButton>
+        <SearchInput onChange={onChange} defaultValue={keyword} />
+        <SearchButton>검색</SearchButton>
       </SearchContainer>
     </Container>
   );

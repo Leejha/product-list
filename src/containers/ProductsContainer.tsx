@@ -3,7 +3,7 @@ import { Header, MoreButton, ProductList } from "../components";
 
 function ProductsContainer() {
   const { keyword, limit, data, onClickMoreProductFetch } = useProducts();
-  const { inputRef, onClickSearch } = useSearch();
+  const { onChange, onSubmit } = useSearch();
 
   if (!data) {
     return <>Loading...</>;
@@ -12,11 +12,7 @@ function ProductsContainer() {
 
   return (
     <>
-      <Header
-        inputRef={inputRef}
-        keyword={keyword}
-        onClickSearch={onClickSearch}
-      />
+      <Header keyword={keyword} onChange={onChange} onSubmit={onSubmit} />
       <ProductList products={products} limit={limit} keyword={keyword} />
       {data.total > products.length && (
         <MoreButton onClick={onClickMoreProductFetch} />

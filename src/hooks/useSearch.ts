@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 export default function useSearch() {
   const navigate = useNavigate();
+  const savedKeyword = useRef("");
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  const onClickSearch = () => {
-    const keyword = inputRef.current?.value ?? "";
-    navigate(`?q=${keyword}`);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    savedKeyword.current = e.target.value;
+  };
+  const onSubmit = () => {
+    navigate(`?q=${savedKeyword.current}`);
   };
 
-  return { inputRef, onClickSearch };
+  return { onChange, onSubmit };
 }
