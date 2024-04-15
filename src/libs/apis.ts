@@ -21,6 +21,7 @@ export const getProductsApi = async ({
     return await response.json();
   } catch (error) {
     console.error("Error:", error);
+    return null;
   }
 };
 
@@ -35,5 +36,6 @@ export const getProductApi = async (id: string) => {
     return await response.json();
   } catch (error) {
     console.error("Error:", error);
+    return null;
   }
 };
