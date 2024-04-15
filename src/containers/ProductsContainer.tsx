@@ -19,11 +19,9 @@ function ProductsContainer() {
         onClickSearch={onClickSearch}
       />
       <ProductList products={products} limit={limit} keyword={keyword} />
-      <MoreButton
-        total={productsResponse.total}
-        length={products.length}
-        onClickMoreProductFetch={onClickMoreProductFetch}
-      />
+      {productsResponse.total > products.length && (
+        <MoreButton onClick={onClickMoreProductFetch} />
+      )}
     </>
   );
 }

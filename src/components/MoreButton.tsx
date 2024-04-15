@@ -1,19 +1,11 @@
 import styled from "styled-components";
 
 interface Props {
-  total: number;
-  length: number;
-  onClickMoreProductFetch: () => void;
+  onClick: () => void;
 }
 
-function MoreButton({ total, length, onClickMoreProductFetch }: Props) {
-  return (
-    <>
-      {total > length && (
-        <Button onClick={onClickMoreProductFetch}>더 보기</Button>
-      )}
-    </>
-  );
+function MoreButton({ onClick }: Props) {
+  return <Button onClick={onClick}>더 보기</Button>;
 }
 
 const Button = styled.button`
