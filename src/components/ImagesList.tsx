@@ -8,8 +8,8 @@ interface Props {
 function ImagesList({ images, title }: Props) {
   return (
     <Container>
-      {images.map((image, index) => (
-        <Image key={index} src={image} alt={`${title}-${index}`} />
+      {images.map((src, index) => (
+        <Image key={`${title}-${index}`} src={src} alt={`${title}-${index}`} />
       ))}
     </Container>
   );
