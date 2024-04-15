@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Product } from "../types";
 import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
 
 interface Props {
   products: Product[];
@@ -13,16 +14,18 @@ function ProductList({ products, limit, keyword }: Props) {
     <Container>
       {products.map(({ id, thumbnail, brand, title, price }) => {
         return (
-          <ProductItem
+          <ProductItemWrapper
             key={id}
-            id={id}
-            thumbnail={thumbnail}
-            brand={brand}
-            title={title}
-            price={price}
-            limit={limit}
-            keyword={keyword}
-          />
+            to={`${id}?limit=${limit}&q=${keyword}`}
+            id={String(id)}
+          >
+            <ProductItem
+              thumbnail={thumbnail}
+              brand={brand}
+              title={title}
+              price={price}
+            />
+          </ProductItemWrapper>
         );
       })}
     </Container>
@@ -34,6 +37,22 @@ const Container = styled.section`
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+`;
+
+const ProductItemWrapper = styled(Link)`
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  box-sizing: border-box;
+  &:hover {
+    .hover-blue {
+      background-color: blue;
+      color: white;
+    }
+  }
 `;
 
 export default ProductList;
