@@ -1,9 +1,8 @@
-import { useProducts, useSearch } from "../hooks";
+import { useProducts } from "../hooks";
 import { Header, MoreButton, ProductList } from "../components";
 
 function ProductsContainer() {
   const { keyword, limit, data, onClickMoreProductFetch } = useProducts();
-  const { onChange, onSubmit } = useSearch();
 
   if (!data) {
     return <>Loading...</>;
@@ -12,7 +11,7 @@ function ProductsContainer() {
 
   return (
     <>
-      <Header keyword={keyword} onChange={onChange} onSubmit={onSubmit} />
+      <Header />
       <ProductList products={products} limit={limit} keyword={keyword} />
       {data.total > products.length && (
         <MoreButton onClick={onClickMoreProductFetch} />
